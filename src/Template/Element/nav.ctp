@@ -12,5 +12,8 @@
         <hr>
         <li><?= $this->Html->link(__('Parcours'), ['controller' => 'Parcours','action' => 'index']) ?></li>
         <li><?= $this->Html->link(__("Niveau d'etudes"), ['controller' => 'NiveauEtudes','action' => 'index']) ?></li>
+        <hr>
+        <li><?= $this->Html->link(__('JSON File'), ['controller' => 'ListPersonnes','action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('Map'), ['controller' => 'Maps','action' => 'index']) ?></li>
     </ul>
 </nav>

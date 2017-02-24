@@ -92,9 +92,8 @@ class PersonnesTable extends Table
             ->requirePresence('adresse', 'create')
             ->notEmpty('adresse')
             ->add('adresse', 'validFormat',[
-                'rule' => array('custom', '/^[a-zA-Z]+$/'),
-                'message' => 'Please enter a valid address.'
-            ]);
+                'rule' => array('custom', '/^[a-zA-Z0-9]*$/'),
+                'message' => 'Please enter a valid address.']);
 
         $validator
             ->integer('cp')

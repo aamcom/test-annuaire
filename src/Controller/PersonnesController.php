@@ -20,6 +20,14 @@ class PersonnesController extends AppController
         $this->set('_serialize', ['personnes']);
     }
 
+    public function getcoordinates($address) {
+        $goodaddress = str_replace(' ','+',$address);
+        $json = json_decode(file_get_contents("http://maps.google.com/maps/api/geocode/json?address=".$goodaddress.'&sensor=false'));
+        $data['lat'] = $json->results[0]->geometry->location->lat;
+        $data['long'] = $json->results[0]->geometry->location->lng;
+        return $data;
+    }
+
     public function view($id = null)
     {
         $personne = $this->Personnes->get($id, [
@@ -34,9 +42,15 @@ class PersonnesController extends AppController
         $personne = $this->Personnes->newEntity();
         if ($this->request->is('post')) {
             $personne = $this->Personnes->patchEntity($personne, $this->request->data);
+
+            $address = $personne->adresse.'+'.$personne->cp.'+'.$personne->ville;
+            debug($address);
+            $coordinates = $this->getcoordinates($address);
+            $personne->latitude = $coordinates['lat'];
+            $personne->longitude = $coordinates['long'];
+
             if ($this->Personnes->save($personne)) {
                 $this->Flash->success(__('The personne has been saved.'));
-
                 return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('The personne could not be saved. Please, try again.'));
@@ -76,24 +90,5 @@ class PersonnesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
-    }
-
-    public function jsonify()
-    {
-        $personne = $this->Personnes->find('all', [
-            'contain' => ['NiveauEtudes', 'Parcours']]);
-        $data = json_encode($personne, JSON_PRETTY_PRINT);
-        $this->set(compact('data'));
-        $this->set('_serialize', ['data']);
-    }
-
-    public function jsonid($id = null)
-    {
-        $personne = $this->Personnes->get($id, [
-            'contain' => ['NiveauEtudes', 'Parcours']
-        ]);
-        $data = json_encode($personne, JSON_PRETTY_PRINT);
-        $this->set(compact('data'));
-        $this->set('_serialize', ['data']);
     }
 }

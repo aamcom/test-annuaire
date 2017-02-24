@@ -19,8 +19,6 @@
             echo $this->Form->input('photo');
             echo $this->Form->input('permis');
             echo $this->Form->input('niveau_etude_id', ['options' => $niveauEtudes, 'empty' => false]);
-            echo $this->Form->input('longitude');
-            echo $this->Form->input('latitude');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

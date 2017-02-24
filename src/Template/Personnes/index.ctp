@@ -37,7 +37,6 @@
                 <td><?= h($personne->permis) ?></td>
                 <td><?= $personne->has('niveau_etude') ? $this->Html->link($personne->niveau_etude->libelle, ['controller' => 'NiveauEtudes', 'action' => 'view', $personne->niveau_etude->id]) : '' ?></td>
                 <td class="actions">
-                    <?= $this->Html->link(__('JSON'), ['action' => 'jsonid', $personne->id]) ?><br>
                     <?= $this->Html->link(__('View'), ['action' => 'view', $personne->id]) ?><br>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $personne->id]) ?><br>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $personne->id], ['confirm' => __('Are you sure you want to delete # {0}?', $personne->id)]) ?>
@@ -58,5 +57,4 @@
         <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
     </div>
 
-    <h4><?= $this->Html->link(__('Access to JSON file'), ['action' => 'jsonify']) ?></h4>
 </div>
