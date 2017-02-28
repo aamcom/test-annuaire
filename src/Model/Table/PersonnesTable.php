@@ -92,7 +92,7 @@ class PersonnesTable extends Table
             ->requirePresence('adresse', 'create')
             ->notEmpty('adresse')
             ->add('adresse', 'validFormat',[
-                'rule' => array('custom', '/^[a-zA-Z0-9]*$/'),
+                'rule' => array('custom', '/^[a-zA-Z0-9 ]*$/'),
                 'message' => 'Please enter a valid address.']);
 
         $validator
@@ -110,12 +110,8 @@ class PersonnesTable extends Table
             ]);
 
         $validator
-            ->requirePresence('photo', 'create')
-            ->notEmpty('photo')
-            ->add('photo', 'validFormat',[
-                'rule' => array('custom', '/^[a-zA-Z]+$/'),
-                'message' => 'Photo is not valid'
-            ]);
+            ->requirePresence('avatar', 'create')
+            ->notEmpty('avatar');
 
         $validator
             ->boolean('permis')

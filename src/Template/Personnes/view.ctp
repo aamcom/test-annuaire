@@ -3,25 +3,12 @@
   * @var \App\View\AppView $this
   */
 ?>
-<!--<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?/*= __('Actions') */?></li>
-        <li><?/*= $this->Html->link(__('Edit Personne'), ['action' => 'edit', $personne->id]) */?> </li>
-        <li><?/*= $this->Form->postLink(__('Delete Personne'), ['action' => 'delete', $personne->id], ['confirm' => __('Are you sure you want to delete # {0}?', $personne->id)]) */?> </li>
-        <li><?/*= $this->Html->link(__('List Personnes'), ['action' => 'index']) */?> </li>
-        <li><?/*= $this->Html->link(__('New Personne'), ['action' => 'add']) */?> </li>
-        <li><?/*= $this->Html->link(__('List Niveau Etudes'), ['controller' => 'NiveauEtudes', 'action' => 'index']) */?> </li>
-        <li><?/*= $this->Html->link(__('New Niveau Etude'), ['controller' => 'NiveauEtudes', 'action' => 'add']) */?> </li>
-        <li><?/*= $this->Html->link(__('List Parcours'), ['controller' => 'Parcours', 'action' => 'index']) */?> </li>
-        <li><?/*= $this->Html->link(__('New Parcour'), ['controller' => 'Parcours', 'action' => 'add']) */?> </li>
-    </ul>
-</nav>-->
 <div class="personnes view large-12 medium-12 columns content">
     <div class="large-6 columns">
         <h3><?= $personne->nom ," ", $personne->prenom," -", $personne->id ?></h3>
     </div>
-    <div class="large-6 columns photo">
-        <?= $this->Html->image('cake.icon.png') ?>
+    <div class="large-6 columns">
+        <?= $this->Html->image('avatars' . DS . $personne->avatar, array('style' => 'max-height: 150px;')) ?>
     </div>
     <table class="vertical-table">
         <tr>

@@ -17,8 +17,8 @@ class ListPersonnesController extends AppController
         $personne = $this->Personnes->find('all', [
             'contain' => ['NiveauEtudes', 'Parcours']]);
         $data = json_encode($personne, JSON_PRETTY_PRINT);
-        $this->set(compact('data'));
-        $this->set('_serialize', ['data']);
+        echo $data;
+        die();
     }
 
 }

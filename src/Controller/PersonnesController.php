@@ -10,7 +10,6 @@ class PersonnesController extends AppController
 {
     public function index()
     {
-/*        $this->viewBuilder()->setLayout("layout-test");*/
         $this->paginate = [
             'contain' => ['NiveauEtudes']
         ];
@@ -42,12 +41,22 @@ class PersonnesController extends AppController
         $personne = $this->Personnes->newEntity();
         if ($this->request->is('post')) {
             $personne = $this->Personnes->patchEntity($personne, $this->request->data);
-
             $address = $personne->adresse.'+'.$personne->cp.'+'.$personne->ville;
-            debug($address);
             $coordinates = $this->getcoordinates($address);
             $personne->latitude = $coordinates['lat'];
             $personne->longitude = $coordinates['long'];
+            $uid = uniqid();
+
+            // IMAGES UPLOAD
+            $extension = strtolower(pathinfo($this->request->data['avatar']['name'], PATHINFO_EXTENSION));
+            if (!empty($this->request->data['avatar']['tmp_name']) && in_array($extension, array('jpg', 'jpeg', 'png')))
+            {
+                move_uploaded_file(
+                    $this->request->data['avatar']['tmp_name'], WWW_ROOT . DS . '/img/avatars' . DS . $uid . '.' . $extension
+                );
+                $personne->avatar = $uid . '.' . $extension;
+            }
+            // IMAGES UPLOAD ^
 
             if ($this->Personnes->save($personne)) {
                 $this->Flash->success(__('The personne has been saved.'));
