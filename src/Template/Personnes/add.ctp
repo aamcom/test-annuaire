@@ -9,10 +9,10 @@
         <legend><?= __('Ajouter Personne') ?></legend>
         <?php
             echo $this->Form->input('email');
-            echo $this->Form->input('civilite');
+            echo $this->Form->input('civilite', array('options' => [1 => 'Femme', 2 => 'Homme']));
             echo $this->Form->input('nom');
             echo $this->Form->input('prenom');
-            echo $this->Form->input('date_naissance');
+            echo $this->Form->input('date_naissance', array('minYear' => '1900', 'maxYear' => '2017'));
             echo $this->Form->input('adresse');
             echo $this->Form->input('cp');
             echo $this->Form->input('ville');
