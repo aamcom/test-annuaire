@@ -9,7 +9,6 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('Photo') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('civilite') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('nom') ?></th>
@@ -27,9 +26,12 @@
             <?php foreach ($personnes as $personne): ?>
             <tr>
                 <td><?= $this->Html->image('avatars' . DS . $personne->avatar, array('style' => 'max-height: 150px;'))?></td>
-                <td><?= $this->Number->format($personne->id) ?></td>
                 <td><?= h($personne->email) ?></td>
-                <td><?= $this->Number->format($personne->civilite) ?></td>
+                <?= if ($personne->civilite == 1) {?>
+                <td>Femme</td>
+                <?= } else { ?>
+                <td>Homme</td>
+                <?= } ?>
                 <td><?= h($personne->nom) ?></td>
                 <td><?= h($personne->prenom) ?></td>
                 <td><?= h($personne->date_naissance) ?></td>
