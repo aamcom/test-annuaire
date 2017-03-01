@@ -64,6 +64,9 @@
             <td><?= $personne->permis ? __('Yes') : __('No'); ?></td>
         </tr>
     </table>
+
+    <h4 style="margin: 40px;"><?= $this->Html->link(__('Edit this Personne'), ['controller' => 'Personnes', 'action' => 'edit', $personne->id]) ?></h4>
+
     <div class="related">
         <h4><br><?= __('Parcours concernées') ?></h4>
         <?= $this->Html->link(__("Créer un nouveau Parcours"), ['controller' => 'Parcours', 'action' => 'add']) ?>

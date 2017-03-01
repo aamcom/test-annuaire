@@ -8,6 +8,7 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
+                <th scope="col"><?= $this->Paginator->sort('Photo') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('civilite') ?></th>
@@ -25,6 +26,7 @@
         <tbody>
             <?php foreach ($personnes as $personne): ?>
             <tr>
+                <td><?= $this->Html->image('avatars' . DS . $personne->avatar, array('style' => 'max-height: 150px;'))?></td>
                 <td><?= $this->Number->format($personne->id) ?></td>
                 <td><?= h($personne->email) ?></td>
                 <td><?= $this->Number->format($personne->civilite) ?></td>

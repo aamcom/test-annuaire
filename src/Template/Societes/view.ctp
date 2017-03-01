@@ -34,6 +34,9 @@
             <td><?= $this->Number->format($societe->id) ?></td>
         </tr>
     </table>
+
+    <h4 style="margin: 40px;"><?= $this->Html->link(__('Edit this Societe'), ['controller' => 'Societes', 'action' => 'edit', $societe->id]) ?></h4>
+
     <div class="related">
         <h4><?= __('Related Parcours') ?></h4>
         <?php if (!empty($societe->parcours)): ?>
