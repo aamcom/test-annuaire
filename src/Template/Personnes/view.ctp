@@ -5,7 +5,7 @@
 ?>
 <div class="personnes view large-12 medium-12 columns content">
     <div class="large-6 columns">
-        <h3><?= $personne->nom ," ", $personne->prenom," -", $personne->id ?></h3>
+        <h3><?= $personne->nom ," ", $personne->prenom ?></h3>
     </div>
     <div class="large-6 columns">
         <?= $this->Html->image('avatars' . DS . $personne->avatar, array('style' => 'max-height: 150px;')) ?>
@@ -34,10 +34,6 @@
         <tr>
             <th scope="row"><?= __('Niveau Etude') ?></th>
             <td><?= $personne->has('niveau_etude') ? $this->Html->link($personne->niveau_etude->libelle, ['controller' => 'NiveauEtudes', 'action' => 'view', $personne->niveau_etude->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($personne->id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Civilite') ?></th>

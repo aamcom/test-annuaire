@@ -56,7 +56,6 @@ class PersonnesController extends AppController
                 );
                 $personne->avatar = $uid . '.' . $extension;
             }
-            // IMAGES UPLOAD ^
 
             if ($this->Personnes->save($personne)) {
                 $this->Flash->success(__('The personne has been saved.'));

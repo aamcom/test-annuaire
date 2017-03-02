@@ -18,12 +18,12 @@
     <h3><?= h($societe->id) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Siret') ?></th>
-            <td><?= h($societe->siret) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Nom') ?></th>
             <td><?= h($societe->nom) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Siret') ?></th>
+            <td><?= h($societe->siret) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Adresse') ?></th>

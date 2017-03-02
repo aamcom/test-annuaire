@@ -27,11 +27,7 @@
             <tr>
                 <td><?= $this->Html->image('avatars' . DS . $personne->avatar, array('style' => 'max-height: 150px;'))?></td>
                 <td><?= h($personne->email) ?></td>
-                <?= if ($personne->civilite == 1) {?>
-                <td>Femme</td>
-                <?= } else { ?>
-                <td>Homme</td>
-                <?= } ?>
+                <td><?= $personne->civilite == 1 ? 'Femme' : 'Homme' ?></td>
                 <td><?= h($personne->nom) ?></td>
                 <td><?= h($personne->prenom) ?></td>
                 <td><?= h($personne->date_naissance) ?></td>

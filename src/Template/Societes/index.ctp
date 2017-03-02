@@ -8,9 +8,8 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('siret') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('nom') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('siret') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('adresse') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -18,9 +17,8 @@
         <tbody>
             <?php foreach ($societes as $societe): ?>
             <tr>
-                <td><?= $this->Number->format($societe->id) ?></td>
-                <td><?= h($societe->siret) ?></td>
                 <td><?= h($societe->nom) ?></td>
+                <td><?= h($societe->siret) ?></td>
                 <td><?= h($societe->adresse) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $societe->id]) ?>
