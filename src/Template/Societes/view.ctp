@@ -3,17 +3,6 @@
   * @var \App\View\AppView $this
   */
 ?>
-<!--<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?/*= __('Actions') */?></li>
-        <li><?/*= $this->Html->link(__('Edit Societe'), ['action' => 'edit', $societe->id]) */?> </li>
-        <li><?/*= $this->Form->postLink(__('Delete Societe'), ['action' => 'delete', $societe->id], ['confirm' => __('Are you sure you want to delete # {0}?', $societe->id)]) */?> </li>
-        <li><?/*= $this->Html->link(__('List Societes'), ['action' => 'index']) */?> </li>
-        <li><?/*= $this->Html->link(__('New Societe'), ['action' => 'add']) */?> </li>
-        <li><?/*= $this->Html->link(__('List Parcours'), ['controller' => 'Parcours', 'action' => 'index']) */?> </li>
-        <li><?/*= $this->Html->link(__('New Parcour'), ['controller' => 'Parcours', 'action' => 'add']) */?> </li>
-    </ul>
-</nav>-->
 <div class="societes view large-12 medium-12 columns content">
     <h3><?= h($societe->id) ?></h3>
     <table class="vertical-table">
